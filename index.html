@@ -94,7 +94,7 @@
         .hero-text p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
 
         .hero img {
-            width: 500px; /* Fixed from 1px */
+            width: 500px; 
             height: auto;
             animation: float 5s ease-in-out infinite;
         }
@@ -151,7 +151,6 @@
         }
 
         body.dark .card:hover { background: #1e293b; }
-
         .card i { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; }
 
         /* ================= STATS ================= */
@@ -183,6 +182,7 @@
             .hero { flex-direction: column; text-align: center; height: auto; padding-top: 150px; }
             .hero img { width: 80%; }
             nav { padding: 20px 30px; }
+            .cta { margin: 20px; padding: 40px; }
         }
     </style>
 </head>
@@ -194,10 +194,10 @@
 <nav>
     <div class="logo"><i class="fa-solid fa-heart-pulse"></i> MedCare</div>
     <div class="nav-right">
-        <a href="#">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./services.html">Services</a>
-        <a href="./contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
         <span class="toggle" onclick="toggleMode()"><i class="fa-solid fa-moon" id="themeIcon"></i></span>
     </div>
 </nav>
@@ -206,9 +206,9 @@
     <div class="hero-text" data-aos="fade-right">
         <h1>Next-Gen Healthcare Experience</h1>
         <p>Providing world-class medical services with cutting-edge technology and a human touch. Your health is our priority.</p>
-        <a href="./appointment.html" class="btn-premium">Book Appointment Now</a>
+        <a href="appointment.html" class="btn-premium">Book Appointment Now</a>
     </div>
-    <img src="./image.png" width="50px" height="50px">
+    <img src="./image.png" alt="Medical Illustration">
 </section>
 
 <section id="services">
@@ -264,16 +264,12 @@
 </section>
 
 <footer style="padding: 40px; text-align: center; opacity: 0.7;">
-    <p>© 2023 MedCare Pro Systems. Designed for Excellence.</p>
+    <p>© 2024 MedCare Pro Systems. Designed for Excellence.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./script.js"></script>
-</body>
+<script src="./script.js"></script>
 
 </body>
 </html>
