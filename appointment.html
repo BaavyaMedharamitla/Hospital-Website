@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Application - MedCare</title>
+    <title>Book Appointment | MedCare Premium</title>
 
+    <link rel="icon" type="image/png" href="./image.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* ================= THEME variables ================= */
         :root {
             --primary: #1e3a8a;
             --secondary: #06b6d4;
@@ -27,273 +27,216 @@
             --border: #1e293b;
         }
 
-        /* ================= GLOBAL ================= */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            transition: background 0.4s ease, color 0.4s ease;
+            transition: 0.4s;
             overflow-x: hidden;
         }
 
-        /* Background Particle Layer */
         #particles-js {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Keep behind content */
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
         }
 
-        /* ================= NAV ================= */
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
+            padding: 15px 5%;
             position: fixed;
-            top: 0;
             width: 100%;
+            top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            box-sizing: border-box;
             border-bottom: 1px solid var(--border);
+            box-sizing: border-box;
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary);
-        }
-
-        .nav-right {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 400;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .nav-right { display: flex; gap: 25px; align-items: center; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 500; }
 
         .toggle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            width: 40px; height: 40px; border-radius: 50%;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: white; display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        /* ================= HERO ================= */
+        /* --- HERO --- */
         .hero {
-            padding-top: 140px;
+            padding-top: 120px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .hero h1 {
             font-size: 3rem;
-            margin: 0;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
 
-        /* ================= FORM CONTAINER ================= */
+        /* --- FORM STYLING --- */
         .form-container {
-            max-width: 900px;
-            margin: 0 auto 60px auto;
-            padding: 40px;
-            border-radius: 24px;
+            max-width: 850px;
+            margin: 0 auto 100px;
+            padding: 50px;
             background: var(--card);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
         }
 
-        .form-section {
-            margin-bottom: 40px;
-        }
-
-        .form-section h2 {
-            margin-bottom: 25px;
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
             color: var(--primary);
-            border-left: 5px solid var(--secondary);
-            padding-left: 15px;
-            font-size: 22px;
+        }
+
+        .section-header i {
+            background: var(--secondary);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
+            margin-bottom: 40px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full { grid-column: span 2; }
 
-        .form-group label {
-            margin-bottom: 8px;
-            font-size: 14px;
-            font-weight: 600;
-        }
+        label { font-size: 0.9rem; font-weight: 600; opacity: 0.8; }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 14px;
+        input, select, textarea {
+            padding: 14px 18px;
             border-radius: 12px;
             border: 1px solid var(--border);
             background: rgba(255, 255, 255, 0.05);
             color: var(--text);
-            outline: none;
-            transition: 0.3s;
             font-family: inherit;
+            transition: 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        input:focus, select:focus, textarea:focus {
+            outline: none;
             border-color: var(--secondary);
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
             background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
         }
 
-        .full {
-            grid-column: span 2;
-        }
-
-        /* ================= BUTTONS ================= */
         .submit-btn {
             width: 100%;
-            padding: 18px;
-            border: none;
+            padding: 20px;
             border-radius: 15px;
+            border: none;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 10px;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.3);
         }
 
-        /* ================= MODAL ================= */
+        /* --- MODAL (POPUP) --- */
         .modal {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: none; /* Hidden by default */
             justify-content: center;
             align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.3s;
             z-index: 2000;
-        }
-
-        .modal.show {
-            visibility: visible;
-            opacity: 1;
         }
 
         .modal-content {
             background: var(--bg);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 25px;
             text-align: center;
             max-width: 400px;
             border: 1px solid var(--border);
+            transform: scale(0.8);
+            transition: 0.3s;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            opacity: 0.7;
+        .modal.show { display: flex; }
+        .modal.show .modal-content { transform: scale(1); }
+
+        .success-icon {
+            font-size: 60px;
+            color: #10b981;
+            margin-bottom: 20px;
         }
 
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             .form-grid { grid-template-columns: 1fr; }
-            .full { grid-column: span 1; }
-            .nav-right a { display: none; } /* Simplified for mobile */
+            .form-group.full { grid-column: span 1; }
+            .form-container { padding: 30px; margin: 0 20px 100px; }
         }
     </style>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-<nav>
-    <div class="logo">
-        <i class="fa-solid fa-heart-pulse"></i> MedCare
+    <nav>
+        <div class="logo"><i class="fa-solid fa-heart-pulse"></i> MedCare</div>
+        <div class="nav-right">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <div class="toggle" onclick="toggleMode()">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1 data-aos="fade-down">Book Your Visit</h1>
+        <p data-aos="fade-up">Fill in the details below to secure your consultation.</p>
     </div>
-      <div class="nav-right">
-    <a href="./index.html">Home</a>
-    <a href="./about.html">About</a>
-    <a href="./services.html">Services</a>
-    <a href="./contact.html">Contact</a>
 
-    <span class="toggle" onclick="toggleMode()">
-      <i class="fa-solid fa-moon"></i>
-    </span>
-  </div>
-</nav>
-
-<section class="hero">
-    <h1 data-aos="fade-down">Patient Application</h1>
-    <p data-aos="fade-up">Precision care through digital innovation</p>
-</section>
-
-<div class="form-container" data-aos="fade-up">
-    <form id="appForm">
-        <div class="form-section">
-            <h2>Personal Details</h2>
+    <div class="form-container" data-aos="zoom-in">
+        <form id="appForm">
+            <div class="section-header">
+                <i class="fa-solid fa-user"></i>
+                <h2>Personal Information</h2>
+            </div>
             <div class="form-grid">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" id="name" placeholder="John Doe" required>
+                    <input type="text" id="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" id="phone" placeholder="10-digit number" required>
+                    <label>Contact Number</label>
+                    <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
                 </div>
                 <div class="form-group">
                     <label>Age</label>
-                    <input type="number" min="1" max="120" required>
+                    <input type="number" placeholder="Years" required>
                 </div>
                 <div class="form-group">
                     <label>Gender</label>
@@ -303,80 +246,67 @@
                         <option>Other</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Blood Group</label>
-                    <select>
-                        <option>A+</option><option>B+</option><option>O+</option>
-                        <option>AB+</option><option>A-</option><option>O-</option>
-                    </select>
-                </div>
             </div>
-        </div>
 
-        <div class="form-section">
-            <h2>Appointment Details</h2>
+            <div class="section-header">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h2>Appointment Detail</h2>
+            </div>
             <div class="form-grid">
                 <div class="form-group">
                     <label>Department</label>
                     <select>
                         <option>Cardiology</option>
                         <option>Neurology</option>
-                        <option>Orthopedics</option>
-                        <option>General Medicine</option>
+                        <option>Diagnostics</option>
+                        <option>General Checkup</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Preferred Date</label>
                     <input type="date" required>
                 </div>
-                <div class="form-group">
-                    <label>Time Slot</label>
-                    <input type="time" required>
-                </div>
-                <div class="form-group">
-                    <label>Consultation Type</label>
-                    <select>
-                        <option>In-Person</option>
-                        <option>Online Video</option>
-                    </select>
+                <div class="form-group full">
+                    <label>Symptoms / Message</label>
+                    <textarea rows="4" placeholder="Briefly describe your concern..."></textarea>
                 </div>
             </div>
-        </div>
 
-        <div class="form-section">
-            <h2>Medical Information</h2>
-            <div class="form-grid">
-                <div class="form-group full">
-                    <label>Primary Symptoms</label>
-                    <textarea rows="3" placeholder="Describe how you feel..."></textarea>
-                </div>
-                <div class="form-group full">
-                    <label>Medical History</label>
-                    <textarea rows="2" placeholder="Any previous surgeries or chronic conditions?"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit Application</button>
-    </form>
-</div>
-
-<div class="modal" id="successModal">
-    <div class="modal-content">
-        <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 50px; margin-bottom: 20px;"></i>
-        <h2>Submission Successful</h2>
-        <p>Your application has been received. Our coordination team will contact you shortly.</p>
-        <button onclick="closeModal()" class="submit-btn">Understood</button>
+            <button type="submit" class="submit-btn">Confirm Appointment</button>
+        </form>
     </div>
-</div>
 
-<footer>
-    <p>© 2024 MedCare Digital Systems. All rights reserved.</p>
-</footer>
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h2>Request Received!</h2>
+            <p>Our medical team will contact you within 24 hours to confirm your slot.</p>
+            <button class="submit-btn" onclick="closeModal()">Great, thanks!</button>
+        </div>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="./script.js"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./script.js"></script>
+
+    <script>
+        // FORM LOGIC
+        const form = document.getElementById('appForm');
+        const modal = document.getElementById('successModal');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page from refreshing
+            
+            // Logic to show the modal
+            modal.classList.add('show');
+            
+            // Optional: Reset the form
+            form.reset();
+        });
+
+        function closeModal() {
+            modal.classList.remove('show');
+        }
+    </script>
 </body>
 </html>
