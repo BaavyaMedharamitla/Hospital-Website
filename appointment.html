@@ -376,66 +376,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-    // Initialize AOS
-    AOS.init({ duration: 1000, once: true });
-
-    // Dark Mode Toggle
-    function toggleMode() {
-        const body = document.body;
-        const icon = document.getElementById("themeIcon");
-        body.classList.toggle("dark");
-        
-        if(body.classList.contains("dark")) {
-            icon.classList.replace("fa-moon", "fa-sun");
-        } else {
-            icon.classList.replace("fa-sun", "fa-moon");
-        }
-    }
-
-    // Particles JS Config
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#06b6d4" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.3 },
-            "size": { "value": 3 },
-            "line_linked": { "enable": true, "distance": 150, "color": "#06b6d4", "opacity": 0.2, "width": 1 },
-            "move": { "enable": true, "speed": 2 }
-        },
-        "interactivity": {
-            "events": { "onhover": { "enable": true, "mode": "grab" } }
-        },
-        "retina_detect": true
-    });
-
-    // Form Handling
-    document.getElementById("appForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        
-        let name = document.getElementById("name").value;
-        let phone = document.getElementById("phone").value;
-
-        if(name.length < 3) {
-            alert("Please enter a valid name.");
-            return;
-        }
-
-        if(phone.length < 10) {
-            alert("Please enter a valid 10-digit phone number.");
-            return;
-        }
-
-        document.getElementById("successModal").classList.add("show");
-    });
-
-    function closeModal() {
-        document.getElementById("successModal").classList.remove("show");
-        document.getElementById("appForm").reset();
-    }
-</script>
-
+<script src="./script.js"></script>
+   
 </body>
 </html>
