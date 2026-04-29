@@ -3,273 +3,110 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedCare Premium Pro | Next-Gen Healthcare</title>
-    
+    <title>Home | MedCare Premium Pro</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        /* ================= THEME ================= */
-        :root {
-            --primary: #1e3a8a;
-            --secondary: #06b6d4;
-            --bg: #f8fafc;
-            --text: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --border: #e2e8f0;
-        }
-
-        body.dark {
-            --bg: #020617;
-            --text: #f1f5f9;
-            --card-bg: rgba(15, 23, 42, 0.8);
-            --border: #1e293b;
-        }
-
-        /* ================= GLOBAL ================= */
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            transition: background 0.4s ease;
-            overflow-x: hidden;
-        }
-
-        #particles-js {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* ================= NAV ================= */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 80px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            box-sizing: border-box;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo { font-weight: 700; font-size: 1.6rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
-        .nav-right { display: flex; gap: 30px; align-items: center; }
-        nav a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--secondary); }
-        
-        .toggle {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: 0.3s;
-        }
-
-        /* ================= HERO ================= */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 100px;
-            gap: 50px;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-text p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
-
-        .hero img {
-            width: 500px; 
-            height: auto;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-        }
-
-        /* ================= BUTTONS ================= */
-        .btn-premium {
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
-        }
-
-        .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(30, 58, 138, 0.4); }
-
-        /* ================= SECTIONS ================= */
-        section { padding: 100px 80px; text-align: center; }
-        section h2 { font-size: 2.5rem; margin-bottom: 50px; position: relative; display: inline-block; }
-        section h2::after {
-            content: ''; width: 50%; height: 4px; background: var(--secondary);
-            position: absolute; bottom: -10px; left: 25%; border-radius: 2px;
-        }
-
-        /* ================= GRID & CARDS ================= */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            transition: 0.4s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--secondary);
-            background: white;
-        }
-
-        body.dark .card:hover { background: #1e293b; }
-        .card i { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; }
-
-        /* ================= STATS ================= */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            background: var(--primary);
-            padding: 60px;
-            border-radius: 30px;
-            color: white;
-        }
-
-        .stat h2 { font-size: 3rem; margin: 0; color: var(--secondary); }
-        .stat h2::after { display: none; }
-
-        /* ================= CALL TO ACTION ================= */
-        .cta {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 40px;
-            margin: 40px 80px;
-            padding: 80px;
-        }
-
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; height: auto; padding-top: 150px; }
-            .hero img { width: 80%; }
-            nav { padding: 20px 30px; }
-            .cta { margin: 20px; padding: 40px; }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="style.css"> </head>
 
 <body>
+    <div id="particles-js"></div>
 
-<div id="particles-js"></div>
-
-<nav>
-    <div class="logo"><i class="fa-solid fa-heart-pulse"></i> MedCare</div>
-    <div class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <span class="toggle" onclick="toggleMode()"><i class="fa-solid fa-moon" id="themeIcon"></i></span>
-    </div>
-</nav>
-
-<section class="hero">
-    <div class="hero-text" data-aos="fade-right">
-        <h1>Next-Gen Healthcare Experience</h1>
-        <p>Providing world-class medical services with cutting-edge technology and a human touch. Your health is our priority.</p>
-        <a href="appointment.html" class="btn-premium">Book Appointment Now</a>
-    </div>
-    <img src="./image.png" alt="Medical Illustration">
-</section>
-
-<section id="services">
-    <h2 data-aos="fade-up">Expert Specialities</h2>
-    <div class="grid">
-        <div class="card" data-aos="zoom-in" data-aos-delay="100">
-            <i class="fa-solid fa-heart-pulse"></i>
-            <h3>Cardiology</h3>
-            <p>Advanced heart care and surgical excellence.</p>
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i> MedCare
         </div>
-        <div class="card" data-aos="zoom-in" data-aos-delay="200">
-            <i class="fa-solid fa-brain"></i>
-            <h3>Neurology</h3>
-            <p>Expert care for complex brain and nerve disorders.</p>
+        <div class="nav-right">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <div class="toggle" onclick="toggleMode()">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </div>
         </div>
-        <div class="card" data-aos="zoom-in" data-aos-delay="300">
-            <i class="fa-solid fa-bone"></i>
-            <h3>Orthopedics</h3>
-            <p>Modern solutions for bone and joint health.</p>
-        </div>
-        <div class="card" data-aos="zoom-in" data-aos-delay="400">
-            <i class="fa-solid fa-dna"></i>
-            <h3>Diagnostics</h3>
-            <p>Precise and fast laboratory results.</p>
-        </div>
-    </div>
-</section>
+    </nav>
 
-<section>
-    <h2 data-aos="fade-up">Global Impact</h2>
-    <div class="stats" data-aos="fade-up">
-        <div class="stat">
-            <h2 class="counter" data-target="15000">0</h2>
-            <p>Satisfied Patients</p>
+    <section class="hero">
+        <div class="hero-text" data-aos="fade-right">
+            <h1>Healthcare Reimagined for 2024.</h1>
+            <p>Experience world-class medical excellence powered by next-gen technology. From AI-driven diagnostics to compassionate bedside care, we are defining the future of health.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="btn-premium">Book Appointment</a>
+                <a href="services.html" class="btn-outline" style="margin-left: 15px; color: var(--text); text-decoration: none; font-weight: 600;">View Services →</a>
+            </div>
         </div>
-        <div class="stat">
-            <h2 class="counter" data-target="250">0</h2>
-            <p>Expert Doctors</p>
+        <div class="hero-image" data-aos="fade-left">
+            <img src="./image.png" alt="Modern Medical Technology" style="width: 100%; max-width: 550px;">
         </div>
-        <div class="stat">
-            <h2 class="counter" data-target="45">0</h2>
-            <p>Specialized Clinics</p>
+    </section>
+
+    <section id="departments">
+        <h2 class="section-title" data-aos="fade-up">Our Excellence Hubs</h2>
+        <div class="grid">
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
+                <h3>Precision Diagnostics</h3>
+                <p>Ultra-fast lab results using robotic processing and AI verification.</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card-icon"><i class="fa-solid fa-user-nurse"></i></div>
+                <h3>Specialized Surgery</h3>
+                <p>Minimally invasive procedures performed by board-certified experts.</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card-icon"><i class="fa-solid fa-pills"></i></div>
+                <h3>Pharmacy 24/7</h3>
+                <p>Instant access to life-saving medications with digital prescriptions.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="cta" data-aos="zoom-out">
-    <h2>Need Immediate Assistance?</h2>
-    <p>Our emergency response team is available 24/7 to provide critical care when you need it most.</p>
-    <a href="tel:108" class="btn-premium" style="background: white; color: var(--primary);">
-        <i class="fa-solid fa-phone"></i> Call Emergency 108
-    </a>
-</section>
+    <section class="stats-section">
+        <div class="stats-wrapper" data-aos="fade-up">
+            <div class="stat-item">
+                <h2 class="count" data-target="15000">0</h2>
+                <p>Patients Treated</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="count" data-target="450">0</h2>
+                <p>Expert Doctors</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="count" data-target="98">0</h2>
+                <p>Success Rate %</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="count" data-target="24">0</h2>
+                <p>Global Awards</p>
+            </div>
+        </div>
+    </section>
 
-<footer style="padding: 40px; text-align: center; opacity: 0.7;">
-    <p>© 2024 MedCare Pro Systems. Designed for Excellence.</p>
-</footer>
+    <section class="cta-banner" data-aos="zoom-in">
+        <div class="cta-content">
+            <h2>Medical Emergency?</h2>
+            <p>Our rapid response trauma team is standing by 24/7 to provide immediate life-saving care.</p>
+            <a href="tel:108" class="emergency-btn">
+                <i class="fa-solid fa-truck-medical"></i> Call Emergency Now: 108
+            </a>
+        </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="./script.js"></script>
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 MedCare Premium Pro. Excellence in Digital Healthcare.</p>
+            <div class="socials">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+        </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
